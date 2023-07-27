@@ -14,12 +14,13 @@ const Home = () => {
   }, []);
 
   const handleDeleteTask = (taskId) => {
-    fetch(`https://to-do-data.onrender.com/tasks${taskId}`, {
+    fetch(`https://to-do-data.onrender.com/tasks/${taskId}`, { // Add a forward slash before taskId
       method: "DELETE",
     }).then(() => {
       setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
     });
   };
+  
 
   const handleAddTask = (newTask) => {
     fetch("https://to-do-data.onrender.com/tasks", {
